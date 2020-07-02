@@ -1,15 +1,5 @@
 package com.fc.service;
 
-import com.fc.async.MailTask;
-import com.fc.mapper.UserMapper;
-import com.fc.model.User;
-import com.fc.util.MyConstant;
-import com.fc.util.MyUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.task.TaskExecutor;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Service;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,16 +7,24 @@ import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fc.mapper.UserMapper;
+import com.fc.model.User;
+import com.fc.util.MyConstant;
+import com.fc.util.MyUtil;
+
 @Service
 public class LoginService {
 
 
     @Autowired
     private UserMapper userMapper;
-    @Autowired
-    private JavaMailSender javaMailSender;
-    @Autowired
-    private TaskExecutor taskExecutor;
+//    @Autowired
+//    private JavaMailSender javaMailSender;
+//    @Autowired
+//    private TaskExecutor taskExecutor;
 
     //注册
     public String register(User user,String repassword) {
@@ -65,7 +63,7 @@ public class LoginService {
         user.setHeadUrl(MyConstant.QINIU_IMAGE_URL +"head.jpg");
 
         //发送邮件
-        taskExecutor.execute(new MailTask(activateCode,user.getEmail(),javaMailSender,1));
+        //taskExecutor.execute(new MailTask(activateCode,user.getEmail(),javaMailSender,1));
 
         //向数据库插入记录
         userMapper.insertUser(user);
@@ -87,11 +85,11 @@ public class LoginService {
         }
 
         int checkActived = userMapper.selectActived(user);
-        if(checkActived==0){
-            map.put("status","no");
-            map.put("error","您还没有激活账户哦，请前往邮箱激活~");
-            return map;
-        }
+//        if(checkActived==0){
+//            map.put("status","no");
+//            map.put("error","您还没有激活账户哦，请前往邮箱激活~");
+//            return map;
+//        }
 
         String headUrl = userMapper.selectHeadUrl(uid);
 

@@ -1,18 +1,17 @@
 package com.fc.service;
 
-import com.fc.async.MailTask;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.fc.mapper.UserMapper;
 import com.fc.model.Info;
 import com.fc.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.task.TaskExecutor;
-import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.stereotype.Service;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.Transaction;
-
-import java.util.List;
 
 
 @Service
@@ -21,11 +20,11 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    @Autowired
-    private JavaMailSender javaMailSender;
+//    @Autowired
+//    private JavaMailSender javaMailSender;
 
-    @Autowired
-    private TaskExecutor taskExecutor;
+//    @Autowired
+//    private TaskExecutor taskExecutor;
 
     @Autowired
     private JedisPool jedisPool;
@@ -138,7 +137,7 @@ public class UserService {
         String verifyCode = userMapper.selectVerifyCode(email);
         System.out.println("verifyCode:"+verifyCode);
         //发送邮件
-        taskExecutor.execute(new MailTask(verifyCode,email,javaMailSender,2));
+        //taskExecutor.execute(new MailTask(verifyCode,email,javaMailSender,2));
     }
 
     public void verifyForgetPassword(String code) {
