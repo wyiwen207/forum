@@ -18,7 +18,7 @@
 	<div class="main w clearfix">
 		<div class="buttons clearfix">
 			<a href="#" id="login-button" class="selected"><span class="glyphicon glyphicon-user"></span>&nbsp;登录</a>
-			<a href="#" id="register-button" class="unselected"><span class="glyphicon glyphicon-pencil"></span>&nbsp;注册</a>
+			<a href="#" id="register-button" class="unselected" style="margin-top: -81px"><span class="glyphicon glyphicon-pencil"></span>&nbsp;注册</a>
 		</div>
 		<div class="contents">
 			<div id="login-area">
