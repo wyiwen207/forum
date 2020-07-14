@@ -9,4 +9,8 @@
     <select id="listImage" resultType="string">
         select image_url from image
     </select>
+
+    <select id="serchTopic" resultType="com.fc.model.Topic">
+        select tid,name,content,image from topic where tid=#{tid}
+    </select>
 </mapper>

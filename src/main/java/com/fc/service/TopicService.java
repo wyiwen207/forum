@@ -1,14 +1,12 @@
 package com.fc.service;
 
-import com.fc.mapper.PostMapper;
-import com.fc.mapper.TopicMapper;
-import com.fc.mapper.UserMapper;
-import com.fc.model.Post;
-import com.fc.model.Topic;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.fc.mapper.TopicMapper;
+import com.fc.model.Topic;
 
 
 @Service
@@ -24,6 +22,10 @@ public class TopicService {
 
     public List<String> listImage() {
         return topicMapper.listImage();
+    }
+
+    public List<Topic> serchTopic(int tid) {
+        return topicMapper.serchTopic(tid);
     }
 }
 

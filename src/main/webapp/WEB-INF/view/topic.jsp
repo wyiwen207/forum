@@ -23,7 +23,7 @@
 			<div class="topic-root">
 				<div class="topic-root-wrap">
 					<c:forEach items="${topicList}" var="topic">
-                        <a href="#">${topic.name}</a>
+                        <a href="serchTopic.do?tid=${topic.tid}">${topic.name}</a>
                     </c:forEach>
 
 				</div>
@@ -60,7 +60,7 @@
 			</div>
 		</div>
 		<div class="main-right">
-			
+
 			<div class="hot-user">
 				<div class="clearfix"><div class="hot-user-title"><span></span>&nbsp;推荐网站</div></div>
 				<ul class="hot-user-list">

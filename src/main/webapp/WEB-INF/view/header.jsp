@@ -3,12 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 
-
 <div class="header clearfix">
     <div class="w">
-        <h1 class="logo"><a href="toIndex.do">DF</a></h1>
+        <h1 class="logo"><a href="toIndex.do">TikStudio</a></h1>
         <ul class="left-nav">
-            <li class="current-nav"><a href="toIndex.do">首页</a></li>
+            <li><a href="toIndex.do">首页</a></li>
             <li><a href="listTopic.do">话题</a></li>
             <li><a href="listImage.do">文章</a></li>
             <li><a href="toMessage.do">消息</a></li>

@@ -1,9 +1,10 @@
 package com.fc.mapper;
 
-import com.fc.model.Post;
-import com.fc.model.Topic;
-
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.fc.model.Topic;
 
 
 public interface TopicMapper {
@@ -11,5 +12,7 @@ public interface TopicMapper {
     List<Topic> listTopic();
 
     List<String> listImage();
+
+    List<Topic> serchTopic(@Param("tid") int tid);
 
 }
